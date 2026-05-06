@@ -1,0 +1,73 @@
+{
+  "repo": "beacon-trace-incident-grid",
+  "language": "Scala",
+  "category": "Observability",
+  "goal": "Package a Scala local lab for incident analysis with round-trip fixtures, lossless normalization checks, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "span volume",
+      "latency skew",
+      "signal loss",
+      "incident shape"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "span volume",
+      "signal": 78,
+      "slack": 40,
+      "drag": 16,
+      "confidence": 65,
+      "score": 213,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "latency skew",
+      "signal": 47,
+      "slack": 30,
+      "drag": 23,
+      "confidence": 50,
+      "score": 105,
+      "lane": "watch"
+    },
+    {
+      "name": "edge",
+      "focus": "signal loss",
+      "signal": 72,
+      "slack": 46,
+      "drag": 21,
+      "confidence": 58,
+      "score": 185,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "incident shape",
+      "signal": 83,
+      "slack": 54,
+      "drag": 22,
+      "confidence": 60,
+      "score": 214,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "span volume",
+      "signal": 76,
+      "slack": 50,
+      "drag": 10,
+      "confidence": 73,
+      "score": 245,
+      "lane": "ship"
+    }
+  ]
+}
