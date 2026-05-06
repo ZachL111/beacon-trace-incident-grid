@@ -1,0 +1,17 @@
+{
+  "repo": "beacon-trace-incident-grid",
+  "thresholds": {
+    "signal": 3,
+    "slack": 1,
+    "confidence": 1,
+    "drag": 3,
+    "ship": 189,
+    "watch": 127
+  },
+  "terms": [
+    "span volume",
+    "latency skew",
+    "signal loss",
+    "incident shape"
+  ]
+}
